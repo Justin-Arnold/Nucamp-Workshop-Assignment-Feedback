@@ -19,5 +19,7 @@ To do this you will need to have a github account and git installed on your comp
     2. In your terminal run `git commit -m "<description>"`
 6. Push your changes to the remote repository
     1. In your terminal run `git push origin <your-name>`
-7. Come back here and make sure you are logged in.
+7. Come back here and make sure you are logged in and then submit a pull request
+> https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
+8. Once the pull request has been created, ping me in slack and I'll review it and leave feedback on it!
 
