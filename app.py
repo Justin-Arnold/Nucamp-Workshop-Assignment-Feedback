@@ -25,6 +25,11 @@ while True:
 
 while True:
     pin = input("Enter PIN: ")
+    try:
+        pin = str(int(pin))
+    except:
+        print("Please choose a numeric pin (no letters or symbols).")
+        continue
     if len(pin) != 4:
         print("PIN must contain 4 numbers")
     else:
