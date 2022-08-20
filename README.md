@@ -13,7 +13,7 @@ To do this you will need to have a github account and git installed on your comp
 3. Create a branch
     1. In your terminal run `git branch <your-name>`
     2. In your terminal run `checkout <your-name>`
-4. Replace the empty files in the project folder with your files that have your work
+4. add in your files that have your work
 5. Stage and Commit your changes
     1. In your terminal run `git add .`
     2. In your terminal run `git commit -m "<description>"`
