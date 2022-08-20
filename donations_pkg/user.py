@@ -1,8 +1,8 @@
 def login(database, username, password):
     if username in database:
         if database[username] == password:
-            print(f'\nWelcome back {username}!')
-            return username   
+            print(f'\nWelcome back {username.title()}!')
+            return username.title()  
         print("\nIncorrect password for", username)
         return ""
     print("\nUser not found. Please register.")
@@ -13,5 +13,5 @@ def register(database, username):
         print('\nUsername already registered.')
         return ""
     else:
-        print(f'\nUsername {username} registered!')
-        return username
+        print(f'\nUsername {username.title()} registered!')
+        return username.title()
