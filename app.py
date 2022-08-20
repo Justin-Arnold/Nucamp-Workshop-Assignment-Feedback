@@ -23,7 +23,7 @@ while True:
     if option == "2":
         username = input("\nEnter username: ").casefold()
         password = input("Enter password: ")
-        authorized_user = register(database, username)
+        authorized_user = register(database, username, password)
         if authorized_user != "":
             database[username] = password
 
