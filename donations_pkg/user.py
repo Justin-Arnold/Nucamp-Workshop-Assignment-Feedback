@@ -13,14 +13,18 @@ def credential_validation(username, password):
     if len(username) > 10:
         validation_message.append("Username cannot exceed 10 characters.")
     if not username.isalnum(): 
-        validation_message.append("Username cannot't include symbols.")
+        validation_message.append("Username cannot include symbols.")
     if not username[0].isalpha():
         validation_message.append("Username must begin with a letter.")
     if len(password) < 5:
         validation_message.append("Password must be at least 5 characters.")
     for message in validation_message:
         print(message)
+    if validation_message == []:
+        return True
+    else:
         return False
+
 
 
 def register(database, username):
