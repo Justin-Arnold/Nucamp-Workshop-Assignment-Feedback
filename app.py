@@ -4,6 +4,7 @@ from donations_pkg.user import login, register
 database = {"admin": "password123"}
 donations = []
 authorized_user = ""
+total_donations = 0
 
 while True:
     show_homepage()
@@ -20,23 +21,26 @@ while True:
         password = input("Enter password: ")
         authorized_user = login(database, username, password)
 
-    if option == "2":
+    elif option == "2":
         username = input("\nEnter username: ").casefold()
         password = input("Enter password: ")
         authorized_user = register(database, username, password)
         if authorized_user != "":
             database[username] = password
 
-    if option == "3":
+    elif option == "3":
         if authorized_user == "":
             print("\nYou are not logged in")
         else:
-            donation_string = donate(authorized_user)
+            donation_amt = input("\nEnter amount to donate: ")
+            total_donations += int(donation_amt)
+            donation_string = donate(authorized_user, donation_amt)
             donations.append(donation_string)
 
-    if option == "4":
+    elif option == "4":
         show_donations(donations)
+        print(f'Total = ${str(total_donations)}')
 
-    if option == "5":
+    elif option == "5":
         print("Good bye!")
-        exit()
+        break
