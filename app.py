@@ -4,7 +4,7 @@ from donations_pkg.user import login, register
 database = {"admin": "password123"}
 donations = []
 authorized_user = ""
-total_donations = 0
+total_donations = 0.0
 
 while True:
     show_homepage()
@@ -33,9 +33,12 @@ while True:
             print("\nYou are not logged in")
         else:
             donation_amt = input("\nEnter amount to donate: ")
-            total_donations += int(donation_amt)
-            donation_string = donate(authorized_user, donation_amt)
-            donations.append(donation_string)
+            if donation_amt.isdigit() and float(donation_amt) > 0:
+                total_donations += float(donation_amt)
+                donation_string = donate(authorized_user, donation_amt)
+                donations.append(donation_string)
+            else:
+                print("Please enter a valid amount.")
 
     elif option == "4":
         show_donations(donations)

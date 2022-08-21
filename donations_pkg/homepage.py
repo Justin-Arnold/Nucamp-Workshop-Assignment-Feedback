@@ -10,7 +10,7 @@ def show_homepage():
     print("------------------------------------------")
 
 def donate(username, donation_amt):
-    print(f'{username} donated ${donation_amt}\nThank you for your donation!\n')
+    print(f'{username} donated ${float(donation_amt)}\nThank you for your donation!\n')
     donation_string = username + " donated $" + donation_amt
     return donation_string
 
