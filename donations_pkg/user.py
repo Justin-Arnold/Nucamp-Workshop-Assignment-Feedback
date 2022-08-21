@@ -8,14 +8,22 @@ def login(database, username, password):
     print("\nUser not found. Please register.")
     return ""
 
-def register(database, username, password):
+def credential_validation(username, password):
+    validation_message = []
     if len(username) > 10:
-        print("Username cannot exceed 10 characters")
-        return ""
+        validation_message.append("Username cannot exceed 10 characters.")
+    if not username.isalnum(): 
+        validation_message.append("Username cannot't include symbols.")
+    if not username[0].isalpha():
+        validation_message.append("Username must begin with a letter.")
     if len(password) < 5:
-        print("Password must be at least 5 characters.")
-        return ""
+        validation_message.append("Password must be at least 5 characters.")
+    for message in validation_message:
+        print(message)
+        return False
 
+
+def register(database, username):
     if username in database:
         print('\nUsername already registered.')
         return ""

@@ -1,5 +1,5 @@
 from donations_pkg.homepage import show_homepage, donate, show_donations
-from donations_pkg.user import login, register
+from donations_pkg.user import login, register, credential_validation
 
 database = {"admin": "password123"}
 donations = []
@@ -24,9 +24,12 @@ while True:
     elif option == "2":
         username = input("\nEnter username: ").casefold()
         password = input("Enter password: ")
-        authorized_user = register(database, username, password)
+        if credential_validation(username, password) == False:
+            authorized_user = ""
+        authorized_user = register(database, username)
         if authorized_user != "":
             database[username] = password
+
 
     elif option == "3":
         if authorized_user == "":
@@ -38,7 +41,7 @@ while True:
                 donation_string = donate(authorized_user, donation_amt)
                 donations.append(donation_string)
             else:
-                print("Please enter a valid amount.")
+                print("\nPlease enter a valid amount.")
 
     elif option == "4":
         show_donations(donations)
