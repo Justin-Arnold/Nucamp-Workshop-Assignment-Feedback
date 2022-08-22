@@ -24,11 +24,8 @@ while True:
     elif option == "2":
         username = input("\nEnter username: ").casefold()
         password = input("Enter password: ")
-        if credential_validation(username, password) == True:
-            authorized_user = register(database, username)
-            if authorized_user != "":
-                database[username] = password
-
+        if credential_validation(username, password):
+            register(database, username, password)
 
     elif option == "3":
         if authorized_user == "":

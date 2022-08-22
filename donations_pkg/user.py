@@ -25,12 +25,11 @@ def credential_validation(username, password):
     else:
         return False
 
-
-
-def register(database, username):
+def register(database, username, password):
     if username in database:
         print('\nUsername already registered.')
         return ""
     else:
+        database[username] = password
         print(f'\nUsername {username.title()} registered!')
-        return username.title()
+        return ""
